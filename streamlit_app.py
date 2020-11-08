@@ -17,7 +17,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 def main():
     
     #Download data
-    filename = 'tv_shows.csv'
+    filename = 'https://raw.githubusercontent.com/Josep-at-work/Streamlit-Demo/main/tv_shows.csv'
     data = download_file(filename)
     search_by = st.sidebar.selectbox('What do you want to do?', options=['Go to App description','Search by title', 'Compare Platforms', 'Filter TV Shows'])
     
