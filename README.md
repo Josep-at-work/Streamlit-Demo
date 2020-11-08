@@ -7,6 +7,6 @@ The complete demo is implemented in less than 300 lines of Python and illustrate
 # How to run the demo:
 ```
 pip install --upgrade streamlit opencv-python
-streamlit run https://raw.githubusercontent.com/Josep-at-work/Streamlit-Demo/master/streamlit_app.py
+streamlit run https://raw.githubusercontent.com/Josep-at-work/Streamlit-Demo/main/streamlit_app.py
 ```
 
