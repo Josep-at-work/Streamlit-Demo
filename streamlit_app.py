@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
 
 import pandas as pd
 import numpy as np
@@ -14,15 +12,6 @@ import base64
 import json
 import streamlit as st
 st.set_option('deprecation.showPyplotGlobalUse', False)
-
-
-# In[10]:
-
-
-get_ipython().system('jupyter nbconvert   --to script streamlit_app.ipynb')
-
-
-# In[2]:
 
 
 def main():
@@ -50,11 +39,6 @@ def main():
     elif search_by == 'Filter TV Shows':
         by_filter(data)        
         
-#... 
-
-
-# In[3]:
-
 
 def download_file(filename):
     data = pd.read_csv(filename, index_col=0)
@@ -97,9 +81,6 @@ def download_file(filename):
     return data 
 
 
-# In[4]:
-
-
 def initial_page(data, plot_prop):
     #Purpouse of the app
     readme_title = '# The most popular TV Shows and Platforms'
@@ -133,9 +114,6 @@ def initial_page(data, plot_prop):
     st.markdown(readme_text)
     grid1 = st.checkbox('Show grid', key='evolution')
     st.pyplot(rating_evolution(data, grid1))    
-
-
-# In[5]:
 
 
 def by_title(data):
@@ -177,10 +155,7 @@ def by_title(data):
             sorted_data = sort_by(df,sort_rating,sort_year) #you can sort the table
             st.table(sorted_data.drop('Rating', axis=1))
 
-
-# In[6]:
-
-
+            
 def by_gen_char(data, plot_prop):
     
     #Option to visualize the platforms' characteristics 
@@ -346,14 +321,9 @@ def by_gen_char(data, plot_prop):
     
     st.markdown('Now that you have more information go to the *Filter TV Shows*                 option on the sidebar and filter your next TV Show by platform!')
 
-    
-
-
-# In[7]:
-
-
+#Search by Filters    
 def by_filter(data):
-    #Search by Filters
+    
     st.markdown('### Filter the TV Shows by rating, target age, year of release and finally select your platform')
     
     years = data.Year.unique()
@@ -407,11 +377,6 @@ def by_filter(data):
         
     st.table(sorted_data[['Platforms','IMDb Rating', 'Target Age', 'Year']])
     
-    
-
-
-# In[8]:
-
 
 def sort_by(data, sort_rating=False, sort_year=False):
     #Sorting Option, if both options are selected the sort by Rating goes first
@@ -426,9 +391,6 @@ def sort_by(data, sort_rating=False, sort_year=False):
     return sorted_data
 
 
-# In[9]:
-
-
 def get_table_download_link(df):
     """Generates a link allowing the data in a given panda dataframe to be downloaded
     in:  dataframe
@@ -439,9 +401,6 @@ def get_table_download_link(df):
         csv.encode()
     ).decode()  # some strings <-> bytes conversions necessary here
     return f'<a href="data:file/csv;base64,{b64}" download="myfilename.csv">Download csv file</a>'
-
-
-# In[11]:
 
 
 if __name__ == "__main__":
