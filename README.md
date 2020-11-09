@@ -1,8 +1,9 @@
 # Stremlit-Demo
 
-This project features more than 5k TV Shows from the last century, found in *Netflix, Prime, Disney+* & *Hulu*, into an interactive Streamlit app. You will be able to compare and filter all TV Shows, as well as the platforms with insightful visualizations.
+This project features more than 5k TV Shows from the last century, found in *Netflix, Prime, Disney+* & *Hulu*, into an interactive [Streamlit](https://www.streamlit.io/) app. You will be able to compare and filter all TV Shows, as well as the platforms with insightful visualizations.
 
-The complete demo is implemented in less than 300 lines of Python and illustrates all the major building blocks of Streamlit.
+The complete demo is implemented in less than 400 lines of Python and illustrates all the major building blocks of Streamlit.
+
 
 # How to run the demo:
 ```
