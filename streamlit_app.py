@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -12,7 +11,6 @@ import base64
 import json
 import streamlit as st
 st.set_option('deprecation.showPyplotGlobalUse', False)
-
 
 def main():
     
@@ -80,7 +78,6 @@ def download_file(filename):
     data['Rating to show'] = data['Rating'].apply(lambda x: 'Not Rated' if math.isnan(x) else round(x,2))   
     return data 
 
-
 def initial_page(data, plot_prop):
     #Purpouse of the app
     readme_title = '# The most popular TV Shows and Platforms'
@@ -114,7 +111,6 @@ def initial_page(data, plot_prop):
     st.markdown(readme_text)
     grid1 = st.checkbox('Show grid', key='evolution')
     st.pyplot(rating_evolution(data, grid1))    
-
 
 def by_title(data):
     
@@ -154,8 +150,7 @@ def by_title(data):
         else:                         
             sorted_data = sort_by(df,sort_rating,sort_year) #you can sort the table
             st.table(sorted_data.drop('Rating', axis=1))
-
-            
+           
 def by_gen_char(data, plot_prop):
     
     #Option to visualize the platforms' characteristics 
@@ -356,10 +351,7 @@ def by_filter(data):
         filtered_data = data[(condition_rating) & (condition_age) & (condition_year)]
 
     filtered_data.set_index('Title', inplace=True)
-    
-    #Checkbox to confirm that the user has setted the filters and whants to see the table of series
-#     show = st.sidebar.checkbox('Show the filtered TV Shows')
-    
+        
     csv = st.checkbox('Download table in a .csv file', key='csv')
     if csv:
         st.markdown(get_table_download_link(data), unsafe_allow_html=True)
@@ -377,7 +369,6 @@ def by_filter(data):
         
     st.table(sorted_data[['Platforms','IMDb Rating', 'Target Age', 'Year']])
     
-
 def sort_by(data, sort_rating=False, sort_year=False):
     #Sorting Option, if both options are selected the sort by Rating goes first
     if sort_rating and sort_year:
@@ -389,7 +380,6 @@ def sort_by(data, sort_rating=False, sort_year=False):
     else:
         sorted_data=data
     return sorted_data
-
 
 def get_table_download_link(df):
     """Generates a link allowing the data in a given panda dataframe to be downloaded
